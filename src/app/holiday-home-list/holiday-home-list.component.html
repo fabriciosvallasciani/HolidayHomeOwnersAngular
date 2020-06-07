@@ -1,0 +1,9 @@
+<div class="container">
+    <header>
+        <h1>Holiday homes in your area</h1>
+        <span>{{ holidayHomesList.length }} properties found</span>
+    </header>
+    <div class="card mt-3 mb-3" *ngFor="let home of holidayHomesList">
+        <app-holiday-home-item [homeItem]="home"></app-holiday-home-item>
+    </div>
+</div>

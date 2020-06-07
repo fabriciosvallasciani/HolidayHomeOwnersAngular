@@ -1,0 +1,54 @@
+<div class="d-flex flex-row flex-wrap">
+    <div class="col-4 p-0">
+        <app-holiday-home-item-image [imageList]="homeItem.imageList"></app-holiday-home-item-image>
+    </div>
+    <div class="col-8 p-0">
+        <a class="noDecoration" [href]="homeItem.id"  target="_blank">
+            <div class="d-flex flex-column p-4" style="height:350px">
+                <div>
+                    <app-holiday-home-item-info-top
+                        [id]="homeItem.id"
+                        [description]="homeItem.description"> 
+                    </app-holiday-home-item-info-top> 
+                </div>
+                <div class="flex-grow-1">
+                    <app-holiday-home-item-info-description
+                        [bedrooms]="homeItem.bedrooms"
+                        [livingArea]="homeItem.livingArea"
+                        [hasWiFi]="homeItem.hasWiFi"
+                        [sleeps]="homeItem.sleeps"
+                        [terraceArea]="homeItem.terraceArea"
+                        [hasBalcony]="homeItem.hasBalcony"
+                        [bathrooms]="homeItem.bathrooms"
+                        [gardenArea]="homeItem.gardenArea"
+                        [hasPatio]="homeItem.hasPatio">        
+                    </app-holiday-home-item-info-description>
+                </div>
+                <div class="d-flex flex-row align-items-end">
+                    <div class="mr-auto">
+                        <app-holiday-home-item-info-bottom
+                            [distanceToAirport]="homeItem.distanceToAirport"
+                            [distanceToBeach]="homeItem.distanceToBeach"
+                            [distanceToShopping]="homeItem.distanceToShopping">        
+                        </app-holiday-home-item-info-bottom> 
+                    </div>
+                    <div class="ml-auto">
+                        <button type="button" class="btn btn-lg btn-success pull-right">
+                            <span>Send enquiry</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>   
+        
+
+                
+
+
+                
+
+
+        
+        

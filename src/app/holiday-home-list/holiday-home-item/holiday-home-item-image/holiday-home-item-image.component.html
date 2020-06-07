@@ -1,0 +1,5 @@
+<ngb-carousel *ngIf="imageList">
+    <ng-template ngbSlide *ngFor="let image of imageList">
+      <img [src]="image.src" [alt]="image.alt">
+    </ng-template>
+</ngb-carousel>

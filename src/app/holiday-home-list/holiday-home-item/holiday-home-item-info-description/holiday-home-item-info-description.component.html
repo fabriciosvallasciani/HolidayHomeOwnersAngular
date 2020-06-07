@@ -1,0 +1,37 @@
+<ul class="list-unstyled">
+    <div class="d-flex flex-row no-gutters">  
+        <div class="col-4">  
+            <li>
+                <fa-icon [icon]="faBedrooms"></fa-icon> {{ bedrooms }} bedrooms
+            </li>
+            <li>
+            <fa-icon [icon]="faLivingArea"></fa-icon> {{ livingArea }} m2 living area
+            </li>
+            <li *ngIf="hasWiFi">
+                <fa-icon [icon]="faHasWiFi"></fa-icon> Wi-Fi
+            </li>
+        </div> 
+        <div class="col-4"> 
+            <li>
+                <fa-icon [icon]="faSleeps"></fa-icon> {{ sleeps }} sleeps
+            </li>
+            <li>
+                <fa-icon [icon]="faTerraceArea"></fa-icon> {{ terraceArea }} m2 terrace area
+            </li>
+            <li *ngIf="hasBalcony">
+                <fa-icon [icon]="faHasBalcony"></fa-icon> Balcony
+            </li>
+        </div>
+        <div class="col-4">  
+            <li>
+                <fa-icon [icon]="faBathrooms"></fa-icon> {{ bathrooms }} bathroom
+            </li>
+            <li>
+                <fa-icon [icon]="faGardenArea"></fa-icon> {{ gardenArea }} m2 garden
+            </li>
+            <li *ngIf="hasPatio">
+                <fa-icon [icon]="faHasPatio"></fa-icon> Patio
+            </li>
+        </div>
+    </div>
+</ul>
