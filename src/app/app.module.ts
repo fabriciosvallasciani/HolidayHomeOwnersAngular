@@ -10,6 +10,7 @@ import { HolidayHomeItemInfoDescriptionComponent } from './holiday-home-list/hol
 import { HolidayHomeItemInfoBottomComponent } from './holiday-home-list/holiday-home-item/holiday-home-item-info-bottom/holiday-home-item-info-bottom.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HolidayHomeListComponent } from './holiday-home-list/holiday-home-list.component';
+import { HolidayHomeFormComponent } from './holiday-home-form/holiday-home-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HolidayHomeListComponent } from './holiday-home-list/holiday-home-list.
     HolidayHomeItemInfoTopComponent,
     HolidayHomeItemInfoDescriptionComponent,
     HolidayHomeItemInfoBottomComponent,
-    HolidayHomeListComponent
+    HolidayHomeListComponent,
+    HolidayHomeFormComponent
   ],
   imports: [
     BrowserModule,

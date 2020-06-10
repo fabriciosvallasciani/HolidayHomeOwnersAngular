@@ -1,5 +1,30 @@
-<ngb-carousel *ngIf="imageList">
+<form>
+  <div *ngIf="showRemoveButton">
+    <header>
+      <h2>Images</h2>
+    </header>
+    <div class="form-group">
+      <div class="form-group">
+          <label for="homeFormImageAltText">Alternative text</label>
+          <input type="text" class="form-control" id="homeFormImageAltText" placeholder="Enter image alternative text" #newAltText>
+      </div>
+      <div class="form-group">
+          <label for="homeFormImageUrl">URL</label>
+          <input type="text" class="form-control" id="homeFormImageUrl" placeholder="Enter image URL" #newUrl>
+      </div>
+      <button type="submit" class="form-group btn btn-secondary" (click)="addImage(newAltText, newUrl)">Add</button>
+    </div>
+  </div>
+  <ngb-carousel class="form-group" *ngIf="imageList">
     <ng-template ngbSlide *ngFor="let image of imageList">
-      <img [src]="image.src" [alt]="image.alt">
+      <img [src]="image.url" [alt]="image.alt">
     </ng-template>
-</ngb-carousel>
+  </ngb-carousel>
+    
+  <div class="form-group" *ngIf="imageList.length !== 0 && showRemoveButton">
+    <button type="submit" class="form-group btn btn-secondary w-100" (click)="removeImage()">Remove currently active image</button>
+  </div>
+  <figure *ngIf="imageList.length === 0">
+    <img src="https://via.placeholder.com/200" alt=""> 
+  </figure>
+</form>
