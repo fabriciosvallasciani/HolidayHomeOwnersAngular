@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HolidayHomeItemComponent } from './holiday-home-list/holiday-home-item/holiday-home-item.component';
@@ -26,7 +27,8 @@ import { HolidayHomeFormComponent } from './holiday-home-form/holiday-home-form.
   imports: [
     BrowserModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

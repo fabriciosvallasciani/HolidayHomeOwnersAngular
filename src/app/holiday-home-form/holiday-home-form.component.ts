@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HolidayHomeModel } from '../models/holiday-home.model';
 import { ImageModel } from '../models/image.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HolidayHomeModel } from '../models/holiday-home.model';
 
 @Component({
   selector: 'app-holiday-home-form',
@@ -8,47 +9,43 @@ import { ImageModel } from '../models/image.model';
   styleUrls: ['./holiday-home-form.component.css']
 })
 export class HolidayHomeFormComponent implements OnInit {
-  newHolidayHome: HolidayHomeModel;
+  imageList: ImageModel[];
+  homeForm: FormGroup;
 
-  constructor() {
-    this.newHolidayHome = new HolidayHomeModel();
+  constructor(private fb: FormBuilder) {
+    this.imageList = [];
+
+    this.homeForm = this.fb.group({
+      id: [''],
+      description: [''],
+      bedrooms: [''], 
+      livingArea: [''], 
+      hasWiFi: [''],
+      sleeps: [''],
+      terraceArea: [''],
+      hasBalcony: [''],
+      bathrooms: [''],
+      gardenArea: [''],
+      hasPatio: [''],
+      distanceToAirport: [''], 
+      distanceToBeach: [''],
+      distanceToShopping: ['']
+    });
   }
 
   ngOnInit(): void {
     
   }
 
-  addHome(newDescription: HTMLInputElement, 
-    newBedrooms: HTMLInputElement, 
-    newLivingArea: HTMLInputElement, 
-    newHasWiFi: HTMLInputElement, 
-    newSleeps: HTMLInputElement, 
-    newTerraceArea: HTMLInputElement, 
-    newHasBalcony: HTMLInputElement, 
-    newBathrooms: HTMLInputElement, 
-    newGardenArea: HTMLInputElement, 
-    newHasPatio: HTMLInputElement, 
-    newDistanceToAirport: HTMLInputElement, 
-    newDistanceToBeach: HTMLInputElement, 
-    newDistanceToShopping: HTMLInputElement): boolean{
-      this.newHolidayHome.setModel(
-        null,
-        newDescription.value, 
-        +newBedrooms.value, 
-        +newLivingArea.value, 
-        newHasWiFi.value === 'true', 
-        +newSleeps.value, 
-        +newTerraceArea.value, 
-        newHasBalcony.value === 'true', 
-        +newBathrooms.value, 
-        +newGardenArea.value, 
-        newHasPatio.value  === 'true', 
-        +newDistanceToAirport.value, 
-        +newDistanceToBeach.value, 
-        +newDistanceToShopping.value,
-        null
-      );
-
+  onSubmit(homeModelWithoutImageList: any): boolean{
+    let holidayHome = new HolidayHomeModel;
+    holidayHome = homeModelWithoutImageList;
+    holidayHome.imageList = this.imageList;
+    
     return false;
+  }
+
+  onImageListChange(newImageList: ImageModel[]){
+    this.imageList = newImageList;
   }
 }

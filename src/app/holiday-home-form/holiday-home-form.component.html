@@ -1,67 +1,67 @@
 <div class="container">
-    <form>
+    <form [formGroup]="homeForm" (ngSubmit)="onSubmit(homeForm.value)">
         <header>
             <h2>Holiday home</h2>
         </header>
         <div class="form-group">
             <label for="homeFormDescription">Description</label>
-            <input type="text" class="form-control" id="homeFormDescription" #newDescription placeholder="Enter short description">
+            <input type="text" class="form-control" id="homeFormDescription" formControlName="description" placeholder="Enter short description">
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between">
             <div class="form-group">
                 <label for="homeFormBedrooms">Bedrooms</label>
-                <input type="number" class="form-control" id="homeFormBedrooms" #newBedrooms>
+                <input type="number" class="form-control" id="homeFormBedrooms" formControlName="bedrooms">
             </div>
             <div class="form-group">
                 <label for="homeFormSleeps">Sleeps</label>
-                <input type="number" class="form-control" id="homeFormSleeps" #newSleeps>
+                <input type="number" class="form-control" id="homeFormSleeps" formControlName="sleeps">
             </div>
             <div class="form-group">
                 <label for="homeFormBathrooms">Bathrooms</label>
-                <input type="number" class="form-control" id="homeFormBathrooms" #newBathrooms>
+                <input type="number" class="form-control" id="homeFormBathrooms" formControlName="bathrooms">
             </div>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between">
             <div class="form-group">
                 <label for="homeFormLivingArea">Living area</label>
-                <input type="number" class="form-control" id="homeFormLivingArea" #newLivingArea>
+                <input type="number" class="form-control" id="homeFormLivingArea" formControlName="livingArea">
             </div>
             <div class="form-group">
                 <label for="homeFormTerraceArea">Terrace area</label>
-                <input type="number" class="form-control" id="homeFormTerraceArea" #newTerraceArea>
+                <input type="number" class="form-control" id="homeFormTerraceArea" formControlName="terraceArea">
             </div>
             <div class="form-group">
                 <label for="homeFormGardenArea">Garden area</label>
-                <input type="number" class="form-control" id="homeFormGardenArea" #newGardenArea>
+                <input type="number" class="form-control" id="homeFormGardenArea" formControlName="gardenArea">
             </div>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between">
             <div class="form-group">
                 <label for="homeFormDistanceToAirport">Distance to airport</label>
-                <input type="number" class="form-control" id="homeFormDistanceToAirport" #newDistanceToAirport>
+                <input type="number" class="form-control" id="homeFormDistanceToAirport" formControlName="distanceToAirport">
             </div>
             <div class="form-group">
                 <label for="homeFormDistanceToBeach">Distance to beach</label>
-                <input type="number" class="form-control" id="homeFormDistanceToBeach" #newDistanceToBeach>
+                <input type="number" class="form-control" id="homeFormDistanceToBeach" formControlName="distanceToBeach">
             </div>
             <div class="form-group">
                 <label for="homeFormDistanceToShopping">Distance to shopping</label>
-                <input type="number" class="form-control" id="homeFormDistanceToShopping" #newDistanceToShopping>
+                <input type="number" class="form-control" id="homeFormDistanceToShopping" formControlName="distanceToShopping">
             </div>
         </div>
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="homeFormHasBalcony" #newHasBalcony>
+            <input type="checkbox" class="form-check-input" id="homeFormHasBalcony" formControlName="hasBalcony">
             <label class="form-check-label" for="homeFormHasBalcony">Has balcony?</label>
         </div>
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="homeFormHasPatio" #newHasPatio>
+            <input type="checkbox" class="form-check-input" id="homeFormHasPatio" formControlName="hasPatio">
             <label class="form-check-label" for="homeFormHasPatio">Has patio?</label>
         </div>
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="homeFormHasWiFi" #newHasWiFi>
+            <input type="checkbox" class="form-check-input" id="homeFormHasWiFi" formControlName="hasWiFi">
             <label class="form-check-label" for="homeFormHasWiFi">Has WiFi?</label>
         </div>
-        <app-holiday-home-item-image [imageList]="newHolidayHome.imageList" [showRemoveButton]="true"></app-holiday-home-item-image>            
-        <button type="submit" class="form-group btn btn-primary w-100" (click)="addHome(newDescription, newBedrooms, newLivingArea, newHasWiFi, newSleeps, newTerraceArea, newHasBalcony, newBathrooms, newGardenArea, newHasPatio, newDistanceToAirport, newDistanceToBeach, newDistanceToShopping)">Submit</button>
+        <app-holiday-home-item-image [imageList]="imageList" [showRemoveButton]="true" (imageListChange)="onImageListChange($event)"></app-holiday-home-item-image>            
+        <button type="submit" class="form-group btn btn-primary w-100" [disabled]="!homeForm.valid">Submit</button>
     </form>
 </div>

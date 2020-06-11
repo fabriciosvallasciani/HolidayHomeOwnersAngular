@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="imageForm">
   <div *ngIf="showRemoveButton">
     <header>
       <h2>Images</h2>
@@ -6,13 +6,13 @@
     <div class="form-group">
       <div class="form-group">
           <label for="homeFormImageAltText">Alternative text</label>
-          <input type="text" class="form-control" id="homeFormImageAltText" placeholder="Enter image alternative text" #newAltText>
+          <input type="text" class="form-control" id="homeFormImageAltText" placeholder="Enter image alternative text" formControlName="altText">
       </div>
       <div class="form-group">
           <label for="homeFormImageUrl">URL</label>
-          <input type="text" class="form-control" id="homeFormImageUrl" placeholder="Enter image URL" #newUrl>
+          <input type="text" class="form-control" id="homeFormImageUrl" placeholder="Enter image URL" formControlName="url" required>
       </div>
-      <button type="submit" class="form-group btn btn-secondary" (click)="addImage(newAltText, newUrl)">Add</button>
+      <button type="submit" class="form-group btn btn-secondary" [disabled]="!imageForm.valid" (click)="addImage()">Add</button>
     </div>
   </div>
   <ngb-carousel class="form-group" *ngIf="imageList">
