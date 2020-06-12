@@ -3,48 +3,48 @@
         <header>
             <h2>Holiday home</h2>
         </header>
-        <div class="form-group">
+        <div class="form-group" [class.alert]="!homeForm.get('description').valid && homeForm.get('description').touched" [class.alert-danger]="!homeForm.get('description').valid && homeForm.get('description').touched">
             <label for="homeFormDescription">Description</label>
-            <input type="text" class="form-control" id="homeFormDescription" formControlName="description" placeholder="Enter short description">
+            <input type="text" class="form-control" id="homeFormDescription" formControlName="description" placeholder="Enter short description" required>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between">
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('bedrooms').valid && homeForm.get('bedrooms').touched" [class.alert-danger]="!homeForm.get('bedrooms').valid && homeForm.get('bedrooms').touched">
                 <label for="homeFormBedrooms">Bedrooms</label>
-                <input type="number" class="form-control" id="homeFormBedrooms" formControlName="bedrooms">
+                <input type="number" class="form-control" id="homeFormBedrooms" formControlName="bedrooms" required>
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('sleeps').valid && homeForm.get('sleeps').touched" [class.alert-danger]="!homeForm.get('sleeps').valid && homeForm.get('sleeps').touched">
                 <label for="homeFormSleeps">Sleeps</label>
-                <input type="number" class="form-control" id="homeFormSleeps" formControlName="sleeps">
+                <input type="number" class="form-control" id="homeFormSleeps" formControlName="sleeps" required>
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('bathrooms').valid && homeForm.get('bathrooms').touched" [class.alert-danger]="!homeForm.get('bathrooms').valid && homeForm.get('bathrooms').touched">
                 <label for="homeFormBathrooms">Bathrooms</label>
-                <input type="number" class="form-control" id="homeFormBathrooms" formControlName="bathrooms">
+                <input type="number" class="form-control" id="homeFormBathrooms" formControlName="bathrooms" required>
             </div>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between">
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('livingArea').valid && homeForm.get('livingArea').touched" [class.alert-danger]="!homeForm.get('livingArea').valid && homeForm.get('livingArea').touched">
                 <label for="homeFormLivingArea">Living area</label>
                 <input type="number" class="form-control" id="homeFormLivingArea" formControlName="livingArea">
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('terraceArea').valid && homeForm.get('terraceArea').touched" [class.alert-danger]="!homeForm.get('terraceArea').valid && homeForm.get('terraceArea').touched">
                 <label for="homeFormTerraceArea">Terrace area</label>
                 <input type="number" class="form-control" id="homeFormTerraceArea" formControlName="terraceArea">
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('gardenArea').valid && homeForm.get('gardenArea').touched" [class.alert-danger]="!homeForm.get('gardenArea').valid && homeForm.get('gardenArea').touched">
                 <label for="homeFormGardenArea">Garden area</label>
                 <input type="number" class="form-control" id="homeFormGardenArea" formControlName="gardenArea">
             </div>
         </div>
         <div class="d-flex flex-row flex-wrap justify-content-between">
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('distanceToAirport').valid && homeForm.get('distanceToAirport').touched" [class.alert-danger]="!homeForm.get('distanceToAirport').valid && homeForm.get('distanceToAirport').touched">
                 <label for="homeFormDistanceToAirport">Distance to airport</label>
                 <input type="number" class="form-control" id="homeFormDistanceToAirport" formControlName="distanceToAirport">
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('distanceToBeach').valid && homeForm.get('distanceToBeach').touched" [class.alert-danger]="!homeForm.get('distanceToBeach').valid && homeForm.get('distanceToBeach').touched">
                 <label for="homeFormDistanceToBeach">Distance to beach</label>
                 <input type="number" class="form-control" id="homeFormDistanceToBeach" formControlName="distanceToBeach">
             </div>
-            <div class="form-group">
+            <div class="form-group" [class.alert]="!homeForm.get('distanceToShopping').valid && homeForm.get('distanceToShopping').touched" [class.alert-danger]="!homeForm.get('distanceToShopping').valid && homeForm.get('distanceToShopping').touched">
                 <label for="homeFormDistanceToShopping">Distance to shopping</label>
                 <input type="number" class="form-control" id="homeFormDistanceToShopping" formControlName="distanceToShopping">
             </div>

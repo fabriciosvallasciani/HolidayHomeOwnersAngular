@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ImageModel } from '../models/image.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HolidayHomeModel } from '../models/holiday-home.model';
+import { positiveNumberTo255Validator } from '../shared/custom-validator-positive-number-to-255.component';
+import { positiveNumberValidator } from '../shared/custom-validator-positive-number.component';
 
 @Component({
   selector: 'app-holiday-home-form',
@@ -17,19 +19,19 @@ export class HolidayHomeFormComponent implements OnInit {
 
     this.homeForm = this.fb.group({
       id: [''],
-      description: [''],
-      bedrooms: [''], 
-      livingArea: [''], 
+      description: ['', Validators.required],
+      bedrooms: ['', Validators.compose([Validators.required, positiveNumberTo255Validator])], 
+      livingArea: ['', positiveNumberValidator], 
       hasWiFi: [''],
-      sleeps: [''],
-      terraceArea: [''],
+      sleeps: ['', Validators.compose([Validators.required, positiveNumberTo255Validator])],
+      terraceArea: ['', positiveNumberValidator],
       hasBalcony: [''],
-      bathrooms: [''],
-      gardenArea: [''],
+      bathrooms: ['', Validators.compose([Validators.required, positiveNumberTo255Validator])],
+      gardenArea: ['', positiveNumberValidator],
       hasPatio: [''],
-      distanceToAirport: [''], 
-      distanceToBeach: [''],
-      distanceToShopping: ['']
+      distanceToAirport: ['', positiveNumberTo255Validator], 
+      distanceToBeach: ['', positiveNumberTo255Validator],
+      distanceToShopping: ['', positiveNumberTo255Validator]
     });
   }
 
@@ -41,7 +43,7 @@ export class HolidayHomeFormComponent implements OnInit {
     let holidayHome = new HolidayHomeModel;
     holidayHome = homeModelWithoutImageList;
     holidayHome.imageList = this.imageList;
-    
+
     return false;
   }
 
