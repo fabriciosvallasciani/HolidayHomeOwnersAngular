@@ -3,7 +3,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ImageModel } from 'src/app/models/image.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
-
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-holiday-home-item-image',
@@ -12,9 +12,9 @@ import { EventEmitter } from '@angular/core';
   providers: [NgbCarouselConfig] 
 })
 export class HolidayHomeItemImageComponent implements OnInit {
-  @Input() imageList: ImageModel[];
+  @Input() imagesList: ImageModel[];
   @Input() showRemoveButton: boolean;
-  @Output() imageListChange: EventEmitter<ImageModel[]>; 
+  @Output() imagesListChange: EventEmitter<ImageModel[]>; 
   
   imageForm: FormGroup;
   
@@ -29,7 +29,7 @@ export class HolidayHomeItemImageComponent implements OnInit {
       url: ['', Validators.required]
     });
 
-    this.imageListChange = new EventEmitter<ImageModel[]>();
+    this.imagesListChange = new EventEmitter<ImageModel[]>();
    }
 
   ngOnInit(): void {
@@ -38,18 +38,18 @@ export class HolidayHomeItemImageComponent implements OnInit {
   addImage(){
     let newImage = new ImageModel();
     newImage.setModel(null, this.imageForm.value.altText, this.imageForm.value.url);
-    this.imageList.push(newImage);
+    this.imagesList.push(newImage);
 
-    this.imageListChange.emit(this.imageList);
+    this.imagesListChange.emit(this.imagesList);
 
     return false;
   }
 
   removeImage(){
     let indexToRemove = this.indexOfClassNameToFind("carousel-item", "active");
-    this.imageList.splice(indexToRemove,1);
+    this.imagesList.splice(indexToRemove,1);
 
-    this.imageListChange.emit(this.imageList);
+    this.imagesListChange.emit(this.imagesList);
 
     return false;
   }

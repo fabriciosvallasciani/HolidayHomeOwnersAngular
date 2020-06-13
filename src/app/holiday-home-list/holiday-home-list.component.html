@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="holidayHomesListObs | async as holidayHomesList; else loading">
     <header>
         <h1>Holiday homes in your area</h1>
         <span>{{ holidayHomesList.length }} properties found</span>
@@ -7,3 +7,6 @@
         <app-holiday-home-item [homeItem]="home"></app-holiday-home-item>
     </div>
 </div>
+<ng-template #loading>
+    <div>Loading ...</div>
+</ng-template>  

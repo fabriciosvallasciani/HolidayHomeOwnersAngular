@@ -15,10 +15,10 @@ export class HolidayHomeModel {
     distanceToAirport: number; 
     distanceToBeach: number;
     distanceToShopping: number;
-    imageList: ImageModel[];
+    imagesList: ImageModel[];
 
     constructor() { 
-        this.imageList = [];
+        this.imagesList = [];
     }
 
     setModel(
@@ -36,7 +36,7 @@ export class HolidayHomeModel {
         newDistanceToAirport: number, 
         newDistanceToBeach: number,
         newDistanceToShopping: number,
-        newImageList: ImageModel[]){
+        newImagesList: ImageModel[]){
             this.id = newId;
             this.description = newDescription ; 
             this.bedrooms = newBedrooms; 
@@ -51,6 +51,6 @@ export class HolidayHomeModel {
             this.distanceToAirport = newDistanceToAirport; 
             this.distanceToBeach = newDistanceToBeach;
             this.distanceToShopping = newDistanceToShopping;
-            this.imageList = newImageList;
+            this.imagesList = newImagesList;
     }
 }

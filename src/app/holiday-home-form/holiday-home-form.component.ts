@@ -11,11 +11,11 @@ import { positiveNumberValidator } from '../shared/custom-validator-positive-num
   styleUrls: ['./holiday-home-form.component.css']
 })
 export class HolidayHomeFormComponent implements OnInit {
-  imageList: ImageModel[];
+  imagesList: ImageModel[];
   homeForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.imageList = [];
+    this.imagesList = [];
 
     this.homeForm = this.fb.group({
       id: [''],
@@ -39,15 +39,15 @@ export class HolidayHomeFormComponent implements OnInit {
     
   }
 
-  onSubmit(homeModelWithoutImageList: any): boolean{
+  onSubmit(homeModelWithoutImagesList: any): boolean{
     let holidayHome = new HolidayHomeModel;
-    holidayHome = homeModelWithoutImageList;
-    holidayHome.imageList = this.imageList;
+    holidayHome = homeModelWithoutImagesList;
+    holidayHome.imagesList = this.imagesList;
 
     return false;
   }
 
-  onImageListChange(newImageList: ImageModel[]){
-    this.imageList = newImageList;
+  onImagesListChange(newImagesList: ImageModel[]){
+    this.imagesList = newImagesList;
   }
 }

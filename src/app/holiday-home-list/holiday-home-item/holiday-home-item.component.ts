@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HolidayHomeModel } from 'src/app/models/holiday-home.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-holiday-home-item',

@@ -61,7 +61,7 @@
             <input type="checkbox" class="form-check-input" id="homeFormHasWiFi" formControlName="hasWiFi">
             <label class="form-check-label" for="homeFormHasWiFi">Has WiFi?</label>
         </div>
-        <app-holiday-home-item-image [imageList]="imageList" [showRemoveButton]="true" (imageListChange)="onImageListChange($event)"></app-holiday-home-item-image>            
+        <app-holiday-home-item-image [imagesList]="imagesList" [showRemoveButton]="true" (imagesListChange)="onImagesListChange($event)"></app-holiday-home-item-image>            
         <button type="submit" class="form-group btn btn-primary w-100" [disabled]="!homeForm.valid">Submit</button>
     </form>
 </div>

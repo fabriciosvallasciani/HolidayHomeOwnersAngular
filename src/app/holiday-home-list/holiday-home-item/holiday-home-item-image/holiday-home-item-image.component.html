@@ -15,16 +15,16 @@
       <button type="submit" class="form-group btn btn-secondary" [disabled]="!imageForm.valid" (click)="addImage()">Add</button>
     </div>
   </div>
-  <ngb-carousel class="form-group" *ngIf="imageList">
-    <ng-template ngbSlide *ngFor="let image of imageList">
+  <ngb-carousel class="form-group" *ngIf="imagesList">
+    <ng-template ngbSlide *ngFor="let image of imagesList">
       <img [src]="image.url" [alt]="image.alt">
     </ng-template>
   </ngb-carousel>
     
-  <div class="form-group" *ngIf="imageList.length !== 0 && showRemoveButton">
+  <div class="form-group" *ngIf="imagesList.length !== 0 && showRemoveButton">
     <button type="submit" class="form-group btn btn-secondary w-100" (click)="removeImage()">Remove currently active image</button>
   </div>
-  <figure *ngIf="imageList.length === 0">
+  <figure *ngIf="imagesList.length === 0">
     <img src="https://via.placeholder.com/200" alt=""> 
   </figure>
 </form>
