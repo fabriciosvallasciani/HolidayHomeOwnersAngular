@@ -1,0 +1,10 @@
+header {
+    border-bottom: 1em solid #0085ad;
+}
+a {
+    display: inline-block;
+}
+img {
+    height: 75px;
+    width: 56px;
+}

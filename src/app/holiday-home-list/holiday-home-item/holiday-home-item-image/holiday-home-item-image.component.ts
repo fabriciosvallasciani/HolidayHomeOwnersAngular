@@ -3,7 +3,6 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ImageModel } from 'src/app/models/image.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-holiday-home-item-image',

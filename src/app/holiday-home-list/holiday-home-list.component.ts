@@ -16,11 +16,7 @@ export class HolidayHomeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.holidayHomesListObs = this.holidayHomesService.getAll(1)
-    
-    .pipe(
-      tap(items => console.log(items)),
-    )
+    this.holidayHomesListObs = this.holidayHomesService.getAll(1);
   }
 
 }

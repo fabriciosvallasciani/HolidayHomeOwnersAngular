@@ -14,6 +14,9 @@ import { HolidayHomeItemInfoBottomComponent } from './holiday-home-list/holiday-
 import { HolidayHomeListComponent } from './holiday-home-list/holiday-home-list.component';
 import { HolidayHomeFormComponent } from './holiday-home-form/holiday-home-form.component';
 import { HolidayHomesService } from './services/holiday-homes.service';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { HolidayHomesService } from './services/holiday-homes.service';
     HolidayHomeItemInfoDescriptionComponent,
     HolidayHomeItemInfoBottomComponent,
     HolidayHomeListComponent,
-    HolidayHomeFormComponent
+    HolidayHomeFormComponent,
+    WelcomeComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
