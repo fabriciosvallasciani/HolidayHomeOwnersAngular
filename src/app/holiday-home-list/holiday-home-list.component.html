@@ -1,10 +1,17 @@
 <div class="container" *ngIf="holidayHomesListObs | async as holidayHomesList; else loading">
     <header>
-        <h1>Holiday homes in your area</h1>
-        <span>{{ holidayHomesList.length }} properties found</span>
+        <h1>Holiday homes owned by {{ ownerFullName }}</h1>
     </header>
-    <div class="card mt-3 mb-3" *ngFor="let home of holidayHomesList">
-        <app-holiday-home-item [homeItem]="home"></app-holiday-home-item>
+    <div *ngIf="holidayHomesList.length > 0">
+        <p>{{ holidayHomesList.length }} properties found</p>
+        <div class="card mt-3 mb-3" *ngFor="let home of holidayHomesList">
+            <app-holiday-home-item [homeItem]="home"></app-holiday-home-item>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="holidayHomesList.length === 0">
+        <figure>
+            <img src="https://via.placeholder.com/500?text=No+homes+for+this+owner" alt=""> 
+        </figure>
     </div>
 </div>
 <ng-template #loading>

@@ -22,5 +22,4 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {
     this.ownersListObs = this.ownersService.getAll();
   }
-
 }

@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HolidayHomeItemComponent } from './holiday-home-list/holiday-home-item/holiday-home-item.component';
@@ -17,6 +18,12 @@ import { HolidayHomesService } from './services/holiday-homes.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+
+const routes: Routes = [   
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'owners/:id/holidayhomes', component: HolidayHomeListComponent }   
+]
 
 @NgModule({
   declarations: [
@@ -37,7 +44,8 @@ import { FooterComponent } from './footer/footer.component';
     NgbModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [HolidayHomesService],
   bootstrap: [AppComponent]

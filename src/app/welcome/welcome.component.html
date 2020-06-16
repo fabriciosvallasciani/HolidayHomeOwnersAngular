@@ -1,28 +1,25 @@
-<div id="rootContainer">
-    <div class="container" *ngIf="ownersListObs | async as ownersList; else loading" >
-        <h1>Holiday homes owners</h1>
-        <div class="card mb-3" *ngFor="let owner of ownersList">
-            <div class="card-header">
-                <h4>{{owner.firstName + " " + owner.lastName}}</h4>
-            </div>
-            <div class="card-body"> 
-                <ul class="list-unstyled">
-                    <li>
-                        <fa-icon [icon]="faTelephone"></fa-icon> {{owner.telephone}}
-                    </li>
-                    <li>
-                        <fa-icon [icon]="faEmail"></fa-icon> {{owner.email}}
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-lg btn-outline-info pull-left">Properties List</a>
-                <button type="button" class="btn btn-lg btn-success pull-right">
-                    <span>Send enquiry</span>
-                </button>
-            </div>
+<div class="container" *ngIf="ownersListObs | async as ownersList; else loading" >
+    <h1>Holiday homes owners</h1>
+    <div class="card mb-3" *ngFor="let owner of ownersList">
+        <div class="card-header">
+            <h4>{{owner.firstName + " " + owner.lastName}}</h4>
+        </div>
+        <div class="card-body"> 
+            <ul class="list-unstyled">
+                <li>
+                    <fa-icon [icon]="faTelephone"></fa-icon> {{owner.telephone}}
+                </li>
+                <li>
+                    <fa-icon [icon]="faEmail"></fa-icon> {{owner.email}}
+                </li>
+            </ul>
+            <a routerLink="/owners/{{owner.id}}/holidayhomes" [queryParams]="{firstName:owner.firstName,lastName:owner.lastName}" class="btn btn-lg btn-outline-info pull-left">Properties List</a>
+            <button type="button" class="btn btn-lg btn-success pull-right">
+                <span>Send enquiry</span>
+            </button>
         </div>
     </div>
-    <ng-template #loading>
-        <div>Loading ...</div>
-    </ng-template>  
 </div>
-
+<ng-template #loading>
+    <div>Loading ...</div>
+</ng-template>

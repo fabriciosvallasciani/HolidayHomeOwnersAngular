@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HolidayHomesService } from '../services/holiday-homes.service';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,13 +10,18 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./holiday-home-list.component.css']
 })
 export class HolidayHomeListComponent implements OnInit {
+  id: string;
+  ownerFullName: string;
   holidayHomesListObs: Observable<any>;
 
-  constructor(public holidayHomesService: HolidayHomesService) { 
+  constructor(private route: ActivatedRoute, private holidayHomesService: HolidayHomesService) { 
   }
 
   ngOnInit(): void {
-    this.holidayHomesListObs = this.holidayHomesService.getAll(1);
+    this.ownerFullName = this.route.snapshot.queryParamMap.get('firstName') + " " + this.route.snapshot.queryParamMap.get('lastName');
+    let id = +this.route.snapshot.paramMap.get('id');
+
+    this.holidayHomesListObs = this.holidayHomesService.getAll(id);
   }
 
 }
