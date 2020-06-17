@@ -1,13 +1,17 @@
 <header>
     <div class="container mt-2">
-        <div class="row">
+        <div class="d-flex flex-row align-items-center">
             <div class="col-3">
                 <a href='/'>
                     <img src="../../assets/images/logo.PNG">
                 </a>
             </div>
             <div class="col-9">
-                <span class="pull-right">Login/Profile</span>
+                <a *ngIf="!authService.isLoggedIn()" [routerLink]="['/login']" class="pull-right btn btn-info">Login</a>
+                <div class="d-flex flex-row-reverse align-items-center" *ngIf="authService.isLoggedIn()">
+                    <a (click)="authService.logout()" class="btn btn-info pull-right">Logout</a>
+                    <span class="p-2"> Welcome, {{authService.getUser()}}</span>
+                </div>
             </div>
         </div>
     </div>

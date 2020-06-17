@@ -1,6 +1,6 @@
 <div class="container" *ngIf="holidayHomesListObs | async as holidayHomesList; else loading">
     <header>
-        <h1>Holiday homes owned by {{ ownerFullName }}</h1>
+        <h2>Holiday homes owned by {{ ownerFullName }}</h2>
     </header>
     <div *ngIf="holidayHomesList.length > 0">
         <p>{{ holidayHomesList.length }} properties found</p>

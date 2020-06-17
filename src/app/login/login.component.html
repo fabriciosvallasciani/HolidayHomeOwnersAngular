@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-3 col-6">
+            <div *ngIf="authService.getUser()">
+                <p>Logged in as <b>{{ authService.getUser() }}</b></p>
+                <a href (click)="logout()">Press here to log out</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-3 col-6">
+            <div class="alert alert-danger" role="alert" *ngIf="message">
+                {{ message }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-3 col-6">
+            <form [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="!authService.getUser()">
+                <header>
+                    <h2>Login</h2>
+                </header>
+                <div class="form-group" [class.alert]="!loginForm.get('username').valid && loginForm.get('username').touched" [class.alert-danger]="!loginForm.get('username').valid && loginForm.get('username').touched">
+                    <label for="loginFormUsername">User name</label>
+                    <input type="text" class="form-control" id="loginFormUsername" formControlName="username" placeholder="Enter user" required>
+                </div>
+                <div class="form-group" [class.alert]="!loginForm.get('password').valid && loginForm.get('password').touched" [class.alert-danger]="!loginForm.get('password').valid && loginForm.get('password').touched">
+                    <label for="loginFormPassword">Password</label>
+                    <input type="password" class="form-control" id="loginFormPassword" formControlName="password" required>
+                </div>
+                <button type="submit" class="form-group btn btn-primary w-100" [disabled]="!loginForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="container" *ngIf="ownersListObs | async as ownersList; else loading" >
-    <h1>Holiday homes owners</h1>
+    <h2>Holiday homes owners</h2>
     <div class="card mb-3" *ngFor="let owner of ownersList">
         <div class="card-header">
             <h4>{{owner.firstName + " " + owner.lastName}}</h4>

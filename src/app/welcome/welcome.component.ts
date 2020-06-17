@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { HolidayHomesOwnersService } from '../services/holiday-homes-owners.service';
-import { HolidayHomeOwnerModel } from '../models/holiday-home-owner.model';
+import { OwnersService } from '../services/owners.service';
+import { OwnerModel } from '../models/owner.model';
 import { faMailBulk, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -14,9 +14,9 @@ import { faMailBulk, faPhone } from '@fortawesome/free-solid-svg-icons';
 export class WelcomeComponent implements OnInit {
   @Input() faTelephone: any = faPhone;
   @Input() faEmail: any = faMailBulk;
-  ownersListObs: Observable<HolidayHomeOwnerModel[]>;
+  ownersListObs: Observable<OwnerModel[]>;
 
-  constructor(private ownersService: HolidayHomesOwnersService) {
+  constructor(private ownersService: OwnersService) {
   }
 
   ngOnInit(): void {

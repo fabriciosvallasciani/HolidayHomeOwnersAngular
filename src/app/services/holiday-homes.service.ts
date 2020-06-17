@@ -7,10 +7,11 @@ import { Observable, of } from 'rxjs';
   providedIn: "root"
 })
 export class HolidayHomesService {
+  // TODO: get this credentials info from the backend by auth service
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'basic YWRtaW5AYWRtaW4uY29tOjEyMzQ1IQ=='
+      'Authorization': localStorage.getItem('authorization')
     })
   } 
    
@@ -18,9 +19,9 @@ export class HolidayHomesService {
   }
 
   getAll(ownerId: number): Observable<HolidayHomeModel[]> {
-    let url = `http://localhost:50857/api/holidayhomesowners/${ownerId}/homes/`;
+    let url = `http://localhost:50857/api/owners/${ownerId}/homes/`;
         
-    return this.http.get<HolidayHomeModel[]>(url, this.httpOptions);
+    return this.http.get<HolidayHomeModel[]>(url);
   }
 
   // getOne(ownerId: number, id: number): HolidayHomeModel {

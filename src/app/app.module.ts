@@ -18,11 +18,15 @@ import { HolidayHomesService } from './services/holiday-homes.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { OwnersService } from './services/owners.service';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [   
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'owners/:id/holidayhomes', component: HolidayHomeListComponent }   
+  { path: 'owners/:id/holidayhomes', component: HolidayHomeListComponent },
+  { path: 'login', component: LoginComponent }   
 ]
 
 @NgModule({
@@ -37,7 +41,8 @@ const routes: Routes = [
     HolidayHomeFormComponent,
     WelcomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [HolidayHomesService],
+  providers: [HolidayHomesService, OwnersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

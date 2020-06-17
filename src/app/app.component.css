@@ -1,4 +1,5 @@
 #rootContainer {
     margin-top: 1em;
     color: black;
+    min-height: 400px;
 }

@@ -1,4 +1,4 @@
-export class HolidayHomeOwnerModel {
+export class OwnerModel {
     id: number;
     firstName: string; 
     lastName: string; 
