@@ -8,3 +8,17 @@ img {
     height: 75px;
     width: 56px;
 }
+.navMenu {
+    padding: 0.5em;
+    background-color:powderblue;
+}
+.menuOption { 
+    color:black;
+    font-weight: bold;
+    border-bottom: 0.1em solid #0b9ea5;
+}
+.menuOption:hover {
+    color: white;
+    font-weight: bold;
+    border-bottom: 0.1em solid #0085ad;
+}

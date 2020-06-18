@@ -26,7 +26,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'owners/:id/holidayhomes', component: HolidayHomeListComponent },
-  { path: 'login', component: LoginComponent }   
+  { path: 'login', component: LoginComponent },   
+  { path: 'holidayhome', component: HolidayHomeFormComponent } 
 ]
 
 @NgModule({
