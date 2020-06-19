@@ -1,6 +1,5 @@
 .card-header{
-    background: linear-gradient(45deg,#0085ad,#0b9ea5);
-    box-shadow: inset 1px 9px 19px -8px rgba(0,68,88,.55);
+    background-color: rgba(0, 152, 255, .60);
 }
 h4 {
     font-style: italic;

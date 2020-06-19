@@ -30,9 +30,11 @@ export class HolidayHomesService {
   //       });
   // }
 
-  // Post() {
-
-  // }
+  Post(ownerId: number, newHome: HolidayHomeModel) {
+    let url = `http://localhost:50857/api/owners/${ownerId}/homes/`;
+        
+    return this.http.post<HolidayHomeModel[]>(url, this.httpOptions);
+  }
 
   // Put() {
 

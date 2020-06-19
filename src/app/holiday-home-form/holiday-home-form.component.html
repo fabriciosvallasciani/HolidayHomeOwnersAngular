@@ -7,6 +7,18 @@
             <label for="homeFormDescription">Description</label>
             <input type="text" class="form-control" id="homeFormDescription" formControlName="description" placeholder="Enter short description" required>
         </div>
+        <div class="form-group"  *ngIf="ownersListObs | async as ownersList; else loading">
+            <label for="homeFormOwner">Owner</label>
+            <select class="form-control" id="homeFormOwner" formControlName="ownerId" required>
+                <option *ngFor="let owner of ownersList" value={{owner.id}}>
+                  {{owner.firstName}}
+                </option>
+            </select>
+            
+        </div>
+        <ng-template #loading>
+            <div>Loading ...</div>
+        </ng-template>
         <div class="d-flex flex-row flex-wrap justify-content-between">
             <div class="form-group" [class.alert]="!homeForm.get('bedrooms').valid && homeForm.get('bedrooms').touched" [class.alert-danger]="!homeForm.get('bedrooms').valid && homeForm.get('bedrooms').touched">
                 <label for="homeFormBedrooms">Bedrooms</label>

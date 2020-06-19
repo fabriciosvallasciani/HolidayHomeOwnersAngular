@@ -1,6 +1,6 @@
 #footerbottom{
     color: white;
-    background: linear-gradient(45deg,#0085ad,#0b9ea5);
+    background: linear-gradient(45deg,#0085ad, rgba(0, 152, 255, .55));
     box-shadow: inset 1px 9px 19px -8px rgba(0,68,88,.55);
 }
 .social-media .fa{

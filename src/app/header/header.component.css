@@ -1,5 +1,5 @@
 header {
-    border-bottom: 1em solid #0085ad;
+    border-bottom: 1em solid  rgba(0, 152, 255, .55);
 }
 a {
     display: inline-block;
@@ -9,16 +9,16 @@ img {
     width: 56px;
 }
 .navMenu {
-    padding: 0.5em;
-    background-color:powderblue;
+    padding: 0.4em;
+    color: white;
+    background-color: rgba(0, 152, 255, .55);
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 .menuOption { 
-    color:black;
-    font-weight: bold;
     border-bottom: 0.1em solid #0b9ea5;
 }
 .menuOption:hover {
-    color: white;
-    font-weight: bold;
+    color: black;
     border-bottom: 0.1em solid #0085ad;
 }
