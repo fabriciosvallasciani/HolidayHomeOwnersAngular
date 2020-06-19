@@ -5,8 +5,8 @@
     </header>
     <div class="form-group">
       <div class="form-group">
-          <label for="homeFormImageAltText">Alternative text</label>
-          <input type="text" class="form-control" id="homeFormImageAltText" placeholder="Enter image alternative text" formControlName="altText">
+          <label for="homeFormImageDescription">Description</label>
+          <input type="text" class="form-control" id="homeFormImageDescription" placeholder="Enter image alternative text" formControlName="description">
       </div>
       <div class="form-group" [class.alert]="!imageForm.get('url').valid && imageForm.get('url').touched" [class.alert-danger]="!imageForm.get('url').valid && imageForm.get('url').touched">
           <label for="homeFormImageUrl">URL</label>
@@ -17,7 +17,7 @@
   </div>
   <ngb-carousel *ngIf="imagesList">
     <ng-template ngbSlide *ngFor="let image of imagesList">
-      <img [src]="image.url" [alt]="image.alt">
+      <img [src]="image.url" [alt]="image.description">
     </ng-template>
   </ngb-carousel>
     

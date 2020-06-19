@@ -11,7 +11,7 @@
             <label for="homeFormOwner">Owner</label>
             <select class="form-control" id="homeFormOwner" formControlName="ownerId" required>
                 <option *ngFor="let owner of ownersList" value={{owner.id}}>
-                  {{owner.firstName}}
+                  {{ owner.firstName + ' ' + owner.lastName }}
                 </option>
             </select>
             
@@ -73,7 +73,9 @@
             <input type="checkbox" class="form-check-input" id="homeFormHasWiFi" formControlName="hasWiFi">
             <label class="form-check-label" for="homeFormHasWiFi">Has WiFi?</label>
         </div>
-        <app-holiday-home-item-image [imagesList]="imagesList" [showRemoveButton]="true" (imagesListChange)="onImagesListChange($event)"></app-holiday-home-item-image>            
+        <div class="form-group">
+            <app-holiday-home-item-image [imagesList]="imagesList" [showRemoveButton]="true" (imagesListChange)="onImagesListChange($event)"></app-holiday-home-item-image>            
+        </div>
         <button type="submit" class="form-group btn btn-primary w-100" [disabled]="!homeForm.valid">Submit</button>
     </form>
 </div>

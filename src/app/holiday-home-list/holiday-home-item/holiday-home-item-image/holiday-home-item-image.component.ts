@@ -24,7 +24,7 @@ export class HolidayHomeItemImageComponent implements OnInit {
     config.pauseOnHover = false;
 
     this.imageForm = this.fb.group({
-      altText: [''],
+      description: [''],
       url: ['', Validators.required]
     });
 
@@ -36,7 +36,7 @@ export class HolidayHomeItemImageComponent implements OnInit {
 
   addImage(){
     let newImage = new ImageModel();
-    newImage.setModel(null, this.imageForm.value.altText, this.imageForm.value.url);
+    newImage.setModel(null, this.imageForm.value.description, this.imageForm.value.url);
     this.imagesList.push(newImage);
 
     this.imagesListChange.emit(this.imagesList);

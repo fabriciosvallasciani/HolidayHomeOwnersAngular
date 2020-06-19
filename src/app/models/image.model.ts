@@ -1,16 +1,16 @@
 export class ImageModel {
     id: number;
     url: string;  
-    alt: string;
+    description: string;
 
     constructor() {}
 
     setModel(
         newId: number,         
-        newAlt: string,
+        newDescription: string,
         newUrl: string) {
             this.id = newId || 0;
             this.url = newUrl; 
-            this.alt = newAlt || ''; 
+            this.description = newDescription || ''; 
     }
 }

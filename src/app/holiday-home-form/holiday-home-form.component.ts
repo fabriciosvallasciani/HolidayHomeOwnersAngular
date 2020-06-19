@@ -53,7 +53,7 @@ export class HolidayHomeFormComponent implements OnInit {
 
     if(this.isFormForNew)
     {
-      this.holidayHomesService.Post(this.homeForm.value.ownerId, holidayHome);
+      this.holidayHomesService.Post(holidayHome).subscribe();
     }
     else {
       // TODO: put here
