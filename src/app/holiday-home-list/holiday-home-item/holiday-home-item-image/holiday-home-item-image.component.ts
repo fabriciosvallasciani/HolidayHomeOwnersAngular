@@ -17,12 +17,7 @@ export class HolidayHomeItemImageComponent implements OnInit {
   
   imageForm: FormGroup;
   
-  constructor(config: NgbCarouselConfig, private fb: FormBuilder) {
-    config.interval = 0;
-    config.wrap = false;
-    config.keyboard = false;
-    config.pauseOnHover = false;
-
+  constructor(private config: NgbCarouselConfig, private fb: FormBuilder) {
     this.imageForm = this.fb.group({
       description: [''],
       url: ['', Validators.required]
@@ -32,6 +27,11 @@ export class HolidayHomeItemImageComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.config.interval = 0;
+    this.config.wrap = false;
+    this.config.keyboard = false;
+    this.config.pauseOnHover = false;
+    this.config.showNavigationArrows = this.imagesList.length > 0;
   }
 
   addImage(){

@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HolidayHomeModel } from '../models/holiday-home.model';
+import { BaseHttpService } from './base-http.service';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: "root"
 })
-export class HolidayHomesService {
+export class HolidayHomesService extends BaseHttpService {
   // TODO: get this credentials info from the backend by auth service
   httpOptions = {
     headers: new HttpHeaders({
@@ -16,7 +18,8 @@ export class HolidayHomesService {
     })
   } 
    
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public notificationService: NotificationService) {
+    super(notificationService);
   }
 
   getAll(ownerId: number): Observable<HolidayHomeModel[]> {
@@ -25,7 +28,7 @@ export class HolidayHomesService {
     return this.http.get<HolidayHomeModel[]>(url)
       .pipe(
         catchError(this.handleError)
-    );
+      );
   }
 
   // getOne(ownerId: number, id: number): HolidayHomeModel {
@@ -34,36 +37,17 @@ export class HolidayHomesService {
   //       });
   // }
 
-  Post(newHome: HolidayHomeModel) : Observable<HolidayHomeModel> {
+  Post(newHome: HolidayHomeModel) : void {
     let url = `http://localhost:50857/api/owners/${newHome.ownerId}/homes/`;
 
-    console.log(url);
-    console.log(newHome);
-    console.log(localStorage.getItem('authorization'));
-
-    return this.http.post<HolidayHomeModel>(url, newHome, this.httpOptions)
-      .pipe(
-        catchError(this.handleError)
-    );
+    this.http.post<HolidayHomeModel>(url, newHome, this.httpOptions)
+      .subscribe(
+        (data) => this.onSuccess(data,'Added successfully','New holiday home'),
+        (error) => this.handleError(error)
+      );
   }
 
   // Put() {
 
-  // }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
-  }
+  // };
 }

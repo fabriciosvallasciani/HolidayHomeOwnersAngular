@@ -20,7 +20,10 @@ export class HolidayHomeFormComponent implements OnInit {
   homeForm: FormGroup;
   isFormForNew: boolean = true;
 
-  constructor(private fb: FormBuilder,private ownersService: OwnersService, private holidayHomesService: HolidayHomesService) {
+  constructor(
+    private fb: FormBuilder,
+    private ownersService: OwnersService, 
+    private holidayHomesService: HolidayHomesService) {
     this.imagesList = [];
 
     this.homeForm = this.fb.group({
@@ -53,7 +56,7 @@ export class HolidayHomeFormComponent implements OnInit {
 
     if(this.isFormForNew)
     {
-      this.holidayHomesService.Post(holidayHome).subscribe();
+      this.holidayHomesService.Post(holidayHome);
     }
     else {
       // TODO: put here

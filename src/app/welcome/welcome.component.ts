@@ -5,7 +5,6 @@ import { OwnersService } from '../services/owners.service';
 import { OwnerModel } from '../models/owner.model';
 import { faMailBulk, faPhone } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -16,10 +15,11 @@ export class WelcomeComponent implements OnInit {
   @Input() faEmail: any = faMailBulk;
   ownersListObs: Observable<OwnerModel[]>;
 
-  constructor(private ownersService: OwnersService) {
+  constructor(
+    private ownersService: OwnersService) {
   }
 
   ngOnInit(): void {
-    this.ownersListObs = this.ownersService.getAll();
+    this.ownersListObs = this.ownersService.getAll();    
   }
 }

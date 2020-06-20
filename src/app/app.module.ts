@@ -5,6 +5,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { HolidayHomeItemComponent } from './holiday-home-list/holiday-home-item/holiday-home-item.component';
@@ -21,6 +23,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { OwnersService } from './services/owners.service';
 import { AuthService } from './services/auth.service';
+import { NotificationService } from './services/notification.service';
+import { BaseHttpService } from './services/base-http.service';
 
 const routes: Routes = [   
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -46,14 +50,21 @@ const routes: Routes = [
     LoginComponent
   ],
   imports: [
-    BrowserModule,
     NgbModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      closeButton: true
+   })
   ],
-  providers: [HolidayHomesService, OwnersService, AuthService],
+  providers: [BaseHttpService, NotificationService, HolidayHomesService, OwnersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
