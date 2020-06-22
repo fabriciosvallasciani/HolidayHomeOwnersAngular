@@ -18,10 +18,9 @@ export class HolidayHomeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ownerFullName = this.route.snapshot.queryParamMap.get('firstName') + " " + this.route.snapshot.queryParamMap.get('lastName');
-    let id = +this.route.snapshot.paramMap.get('id');
+    let ownerId = +this.route.snapshot.paramMap.get('ownerId');
 
-    this.holidayHomesListObs = this.holidayHomesService.getAll(id);
+    this.holidayHomesListObs = this.holidayHomesService.getAll(ownerId);
   }
 
 }

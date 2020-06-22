@@ -10,7 +10,7 @@ export class BaseHttpService {
   constructor(public notificationService: NotificationService) {
   }
   
-  public onSuccess = (data: any, message: string, title: string): void => {
+  public onSuccess = (data: any, message: string, title: string): void => {    
     this.notificationService.showSuccess(message, title);
   }
 

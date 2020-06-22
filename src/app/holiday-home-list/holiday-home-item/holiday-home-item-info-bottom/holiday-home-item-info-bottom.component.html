@@ -1,3 +1,10 @@
 <fa-icon [icon]="faDistanceToAirport"></fa-icon> {{ distanceToAirport }} km
 <fa-icon [icon]="faDistanceToBeach"></fa-icon> {{ distanceToBeach }} m
 <fa-icon [icon]="faDistanceToShopping"></fa-icon> {{ distanceToShopping }} m
+
+<a class="btn btn-outline-dark" routerLink='/owners/{{ownerId}}/holidayhomes/{{homeId}}' [queryParams]="{mode: 'edit'}">
+    <fa-icon [icon]="faEdit"></fa-icon> Edit
+</a>
+<a class="btn btn-outline-dark">
+    <fa-icon [icon]="faDelete"></fa-icon> Delete
+</a>

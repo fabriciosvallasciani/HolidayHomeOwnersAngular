@@ -30,9 +30,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [   
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'owners/:id/holidayhomes', component: HolidayHomeListComponent },
+  { path: 'owners/:ownerId/holidayhomes', component: HolidayHomeListComponent },
   { path: 'login', component: LoginComponent },   
   { path: 'holidayhome', component: HolidayHomeFormComponent },
+  { path: 'owners/:ownerId/holidayhomes/:homeId', component: HolidayHomeFormComponent },
   { path: '**', component: NotFoundComponent } 
 ]
 
