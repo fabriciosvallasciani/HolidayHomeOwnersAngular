@@ -25,13 +25,15 @@ import { OwnersService } from './services/owners.service';
 import { AuthService } from './services/auth.service';
 import { NotificationService } from './services/notification.service';
 import { BaseHttpService } from './services/base-http.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [   
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'owners/:id/holidayhomes', component: HolidayHomeListComponent },
   { path: 'login', component: LoginComponent },   
-  { path: 'holidayhome', component: HolidayHomeFormComponent } 
+  { path: 'holidayhome', component: HolidayHomeFormComponent },
+  { path: '**', component: NotFoundComponent } 
 ]
 
 @NgModule({
@@ -47,7 +49,8 @@ const routes: Routes = [
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     NgbModule,
