@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HolidayHomesService } from '../services/holiday-homes.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { OwnersService } from '../services/owners.service';
+import { OwnerModel } from '../models/owner.model';
 
 
 @Component({
@@ -11,15 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HolidayHomeListComponent implements OnInit {
   id: string;
-  ownerFullName: string;
+  ownerObs: Observable<OwnerModel>;
   holidayHomesListObs: Observable<any>;
 
-  constructor(private route: ActivatedRoute, private holidayHomesService: HolidayHomesService) { 
+  constructor(private route: ActivatedRoute, private holidayHomesService: HolidayHomesService, private ownersService: OwnersService) { 
   }
 
   ngOnInit(): void {
     let ownerId = +this.route.snapshot.paramMap.get('ownerId');
-
+    this.ownerObs = this.ownersService.get(ownerId);
+     
     this.holidayHomesListObs = this.holidayHomesService.getAll(ownerId);
   }
 

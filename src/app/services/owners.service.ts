@@ -14,6 +14,15 @@ export class OwnersService extends BaseHttpService {
     super(notificationService);
   }
 
+  get(id: number): Observable<OwnerModel> {
+    let url = `http://localhost:50857/api/owners/${id}`;
+        
+    return this.http.get<OwnerModel>(url)
+      .pipe(
+        catchError(this.handleError)
+    );
+  }
+
   getAll(): Observable<OwnerModel[]> {
     let url = `http://localhost:50857/api/owners/`;
         
