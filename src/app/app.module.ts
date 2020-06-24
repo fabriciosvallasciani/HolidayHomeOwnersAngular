@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HolidayHomeItemComponent } from './holiday-home-list/holiday-home-item/holiday-home-item.component';
@@ -26,6 +27,7 @@ import { AuthService } from './services/auth.service';
 import { NotificationService } from './services/notification.service';
 import { BaseHttpService } from './services/base-http.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
 const routes: Routes = [   
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -51,7 +53,8 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ModalConfirmComponent
   ],
   imports: [
     NgbModule,
@@ -68,7 +71,7 @@ const routes: Routes = [
       closeButton: true
    })
   ],
-  providers: [BaseHttpService, NotificationService, HolidayHomesService, OwnersService, AuthService],
+  providers: [BaseHttpService, NotificationService, HolidayHomesService, OwnersService, AuthService, NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

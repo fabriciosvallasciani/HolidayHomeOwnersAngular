@@ -5,6 +5,6 @@
 <a class="btn btn-outline-dark" routerLink='/owners/{{ownerId}}/holidayhomes/{{homeId}}' [queryParams]="{mode: 'edit'}">
     <fa-icon [icon]="faEdit"></fa-icon> Edit
 </a>
-<a class="btn btn-outline-dark">
+<a class="btn btn-outline-dark" (click)="openModalForDelete()" routerLink='/owners/{{ownerId}}/holidayhomes' >
     <fa-icon [icon]="faDelete"></fa-icon> Delete
 </a>

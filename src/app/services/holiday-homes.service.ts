@@ -66,4 +66,19 @@ export class HolidayHomesService extends BaseHttpService {
         (error) => this.handleError(error)
       );
   }
+
+  delete(ownerId: number, homeId: number) : void {
+    let url = `http://localhost:50857/api/owners/${ownerId}/homes/${homeId}`;
+
+    this.http.delete(url, this.httpOptions)
+      .subscribe(
+        (data) => {
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate([`/owners/${ownerId}/holidayhomes`]);
+          this.onSuccess(data,'Deleted successfully','Delete holiday home')
+        },
+        (error) => this.handleError(error)
+      );
+  }
 }

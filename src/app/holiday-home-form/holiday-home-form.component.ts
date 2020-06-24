@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageModel } from '../models/image.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HolidayHomeModel } from '../models/holiday-home.model';
-import { positiveNumberTo255Validator } from '../shared/custom-validator-positive-number-to-255.component';
-import { positiveNumberValidator } from '../shared/custom-validator-positive-number.component';
-import { HolidayHomesService } from '../services/holiday-homes.service';
-import { OwnersService } from '../services/owners.service';
-import { OwnerModel } from '../models/owner.model';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
+
+import { HolidayHomesService } from '../services/holiday-homes.service';
+import { OwnersService } from '../services/owners.service';
+
+import { ImageModel } from '../models/image.model';
+import { OwnerModel } from '../models/owner.model';
+import { HolidayHomeModel } from '../models/holiday-home.model';
+
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { positiveNumberTo255Validator } from '../shared/custom-validator-positive-number-to-255.component';
+import { positiveNumberValidator } from '../shared/custom-validator-positive-number.component';
 
 @Component({
   selector: 'app-holiday-home-form',
@@ -76,8 +79,8 @@ export class HolidayHomeFormComponent implements OnInit {
             this.homeForm.controls['distanceToShopping'].setValue(home.distanceToShopping);
 
             this.imagesList = home.imagesList;
-        });
-    }
+      });
+    }    
   }
 
   onSubmit(homeModelWithoutImagesList: any): boolean{
